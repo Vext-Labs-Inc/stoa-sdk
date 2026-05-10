@@ -1,0 +1,69 @@
+{
+  "name": "@stoa/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript reference client for the Stoa open agent-readable SaaS substrate",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "stoa": "./dist/bin/stoa.js"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts bin/stoa.ts --format esm,cjs --dts --clean --entry.stoa bin/stoa.ts",
+    "dev": "tsup src/index.ts --format esm --dts --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "jose": "^5.9.6",
+    "tar": "^7.4.3",
+    "zod": "^3.23.8",
+    "zstd-napi": "^0.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/tar": "^6.1.13",
+    "tsup": "^8.3.0",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "peerDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "stoa",
+    "agent",
+    "sdk",
+    "saas",
+    "mcp",
+    "ai",
+    "autonomous"
+  ],
+  "author": "Vext Labs <open@vext.ai>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vext-Labs-Inc/stoa-sdk.git"
+  },
+  "homepage": "https://github.com/Vext-Labs-Inc/stoa-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/Vext-Labs-Inc/stoa-sdk/issues"
+  }
+}
